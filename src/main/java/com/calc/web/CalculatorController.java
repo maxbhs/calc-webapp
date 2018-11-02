@@ -10,7 +10,7 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CalculatorController {
 
-    @Value("http://calc-logic")
+    @Value("http://calc-logic-lb")
     private String calcLogicApiUrl;
 
     @PostMapping("/calculator")
