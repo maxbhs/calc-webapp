@@ -10,14 +10,14 @@ import org.springframework.web.client.RestTemplate;
 @RestController
 public class CalculatorController {
 
-    @Value("http://calc-logic-lb")
+    @Value("http://calc-logic")
     private String calcLogicApiUrl;
 
-    @PostMapping("/calculator")
+    @PostMapping("/")
     public CalculationResultDto calculationResult(@RequestBody ExprDto exprDto) {
         RestTemplate restTemplate = new RestTemplate();
 
-        return restTemplate.postForEntity(calcLogicApiUrl + "/calculate/calculate",
+        return restTemplate.postForEntity(calcLogicApiUrl + "/",
                 exprDto,CalculationResultDto.class)
                 .getBody();
     }
